@@ -1,8 +1,11 @@
-# Vue 3 + Vite
+# Book Searcher
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-# test-google-search
+Endpoint API: https://www.googleapis.com/books/v1/volumes?q=<your_query_string>
+Пример: https://www.googleapis.com/books/v1/volumes?q=programming.
+Примечания:
+  • Приложение должно быть написано на JavaScript с использованием Vue.js 3.
+• Верстка должна быть адаптивной — мы будем проверять адаптивную верстку в различных браузерах (Яндекс.Браузер, Chrome, Safari и т. д.) на различных устройствах (iPhone, iPad, Android, настольных компьютерах и Mac);
+  • По возможности следует избегать сторонних платформ, но их можно использовать для небольших задач (например, загрузка изображений, работа в сети).
+  • Приложение должно быть отправлено как URL-адрес Git. Пожалуйста, делайте коммит по мере написания кода (не делайте только один окончательный коммит).
+Основная цель этого примера приложения — позволить вам продемонстрировать свои знания различных шаблонов проектирования, принципов SOLID и того, насколько чистый и пригодный для повторного использования код вы можете писать. Может быть реализована базовая обработка ошибок (достаточно оператора печати). Если приложение занимает слишком много времени, не стесняйтесь оставлять комментарии к задачам для нереализованной функциональности (например, // задача: обработка ошибок). Бонусные баллы, если приложение написано с использованием подхода TDD или модульных тестов.
