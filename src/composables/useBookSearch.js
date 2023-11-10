@@ -10,6 +10,7 @@ export const useBookSearch = () => {
     text: route.query.q || ""
   });
   const results = ref({});
+  const detail = ref({});
   const fetching = ref(false);
 
   const onSearchInput = debounce(getVolumesByPhrase, 600);
@@ -41,11 +42,27 @@ export const useBookSearch = () => {
       });
   }
 
+  function fetchBookById(id) {
+    fetching.value = true;
+    return axios
+      .get(`/books/v1/volumes/${id || route.params.id}`)
+      .then((res) => {
+        detail.value = res?.data || {};
+        fetching.value = false;
+      })
+      .finally(() => {
+        fetching.value = false;
+      });
+  }
+
   return {
     searchForm,
     results,
+    detail,
     fetching,
+    router,
     onSearchInput,
-    getVolumesByPhrase
+    getVolumesByPhrase,
+    fetchBookById
   };
 };

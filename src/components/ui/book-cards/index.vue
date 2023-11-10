@@ -4,6 +4,10 @@ defineProps({
     type: Object,
     default: () => ({}),
     required: true
+  },
+  id: {
+    type: String,
+    required: true
   }
 });
 </script>
@@ -48,8 +52,14 @@ defineProps({
       >
         Pages: {{ card.pageCount }}
       </p>
-      <a
-        :href="card.previewLink"
+
+      <router-link
+        :to="{
+          name: 'pages.book-detail',
+          params: {
+            id
+          }
+        }"
         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Read more
@@ -68,7 +78,7 @@ defineProps({
             d="M1 5h12m0 0L9 1m4 4L9 9"
           />
         </svg>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
