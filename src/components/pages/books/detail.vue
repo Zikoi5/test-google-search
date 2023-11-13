@@ -10,18 +10,21 @@ onMounted(fetchBookById);
 </script>
 <template>
   <div class="container mx-auto">
-    <section class="book-details">
+    <section class="book-details px-6 md:px-0">
       <div class="flex space-x-2 my-5 items-center">
-        <ArrowLeft class="mr-2 cursor-pointer" @click="router.go(-1)" />
-        <h1 class="text-3xl">Book Details</h1>
+        <ArrowLeft
+          class="mr-2 cursor-pointer dark:text-white"
+          @click="router.go(-1)"
+        />
+        <h1 class="text-3xl dark:text-white">Book Details</h1>
       </div>
 
       <div v-show="fetching" class="flex justify-center mb-6">
         <Spinner />
       </div>
 
-      <div v-if="!fetching" class="flex space-x-4">
-        <div class="thumbnail w-[300px] shrink-0">
+      <div v-if="!fetching" class="flex md:space-x-4 flex-col md:flex-row">
+        <div class="thumbnail w-full sm:w-[300px] shrink-0">
           <img
             class="w-full"
             :src="detail?.volumeInfo?.imageLinks?.thumbnail"
@@ -29,7 +32,9 @@ onMounted(fetchBookById);
           />
         </div>
         <div class="w-full pt-3">
-          <h1 class="title text-2xl mb-2">{{ detail?.volumeInfo?.title }}</h1>
+          <h1 class="title text-2xl mb-2 dark:text-white">
+            {{ detail?.volumeInfo?.title }}
+          </h1>
           <div class="mb-10">
             <p class="mb-8 font-normal text-gray-700 dark:text-gray-400">
               Authors:
@@ -40,7 +45,7 @@ onMounted(fetchBookById);
               >
             </p>
             <p
-              class="mb-3 font-normal text-gray-700 dark:text-gray-400"
+              class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-justify"
               v-html="detail?.volumeInfo?.description"
             ></p>
           </div>

@@ -14,7 +14,7 @@ onMounted(getVolumesByPhrase);
   <div>
     <div class="container mx-auto">
       <div class="search-input-container">
-        <div class="search-input-row">
+        <div class="search-input-row px-6 md:px-0">
           <div class="my-6">
             <input
               type="text"
@@ -29,7 +29,7 @@ onMounted(getVolumesByPhrase);
     </div>
 
     <div class="container mx-auto mt-5">
-      <section class="results-body">
+      <section class="results-body px-6 md:px-0">
         <div v-show="!results.totalItems && !fetching">No results</div>
 
         <div
@@ -48,7 +48,7 @@ onMounted(getVolumesByPhrase);
         >
           <div class="stats-section mb-5" v-show="results?.totalItems">
             <div class="d-flex">
-              <h1>Total {{ results?.totalItems }}</h1>
+              <h1 class="dark:text-white">Total {{ results?.totalItems }}</h1>
             </div>
           </div>
 

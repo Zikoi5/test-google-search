@@ -1,4 +1,6 @@
 <script setup>
+import routeNames from "@/router/names";
+
 defineProps({
   card: {
     type: Object,
@@ -14,9 +16,12 @@ defineProps({
 
 <template>
   <div
-    class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex"
+    class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col md:flex-row"
   >
-    <a class="w-[128px] block shrink-0" :href="card.previewLink">
+    <a
+      class="w-[128px] block shrink-0 mx-auto sm:mx-0"
+      :href="card.previewLink"
+    >
       <img
         width="128"
         class="rounded-lg"
@@ -25,29 +30,35 @@ defineProps({
       />
     </a>
 
-    <div class="p-5">
+    <div class="p-3 sm:p-5">
       <h5
-        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        class="mb-2 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
       >
         {{ card.title }}
       </h5>
 
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      <p
+        class="mb-3 font-normal text-sm sm:text-lg text-gray-700 dark:text-gray-400"
+      >
         {{ card?.searchInfo?.textSnippet }}
       </p>
 
-      <p class="mb-1 font-normal text-gray-700 dark:text-gray-400">
+      <p
+        class="mb-1 font-normal text-sm sm:text-lg text-gray-700 dark:text-gray-400"
+      >
         Authors:
         <span class="mr-2" v-for="author in card.authors">{{ author }}</span>
       </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      <p
+        class="mb-3 font-normal text-sm sm:text-lg text-gray-700 dark:text-gray-400"
+      >
         Categories:
         <span class="mr-2" v-for="category in card.categories">{{
           category
         }}</span>
       </p>
       <p
-        class="mb-3 font-normal text-gray-700 dark:text-gray-400"
+        class="mb-3 font-normal text-sm sm:text-lg text-gray-700 dark:text-gray-400"
         v-show="card.pageCount"
       >
         Pages: {{ card.pageCount }}
@@ -55,7 +66,7 @@ defineProps({
 
       <router-link
         :to="{
-          name: 'pages.book-detail',
+          name: routeNames.bookDetail,
           params: {
             id
           }
