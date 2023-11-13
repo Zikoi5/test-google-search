@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import routeNames from "@/router/names";
 
 const MAX_LENGTH = 16;
 const TIMEOUT = 3;
@@ -26,7 +27,7 @@ const onSubmit = () => {
   pending.value = true;
   setTimeout(() => {
     router.replace({
-      name: "Home"
+      name: routeNames.home
     });
     pending.value = false;
   }, TIMEOUT * 1000);
