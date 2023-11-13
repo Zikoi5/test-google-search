@@ -30,7 +30,9 @@ onMounted(getVolumesByPhrase);
 
     <div class="container mx-auto mt-5">
       <section class="results-body px-6 md:px-0">
-        <div v-show="!results.totalItems && !fetching">No results</div>
+        <div class="dark:text-white" v-show="!results.totalItems && !fetching">
+          No results
+        </div>
 
         <div
           v-show="!results.totalItems && fetching"
